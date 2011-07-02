@@ -94,7 +94,7 @@ def main():
   session=None
   try:
     if not opts.quiet:
-      sys.stderr.write("Logining to Amazon.com ... ")
+      sys.stderr.write("Logging in to Amazon.com ... ")
     if opts.email and opts.password:
       session=pyacd.login(opts.email,opts.password)
     else:

@@ -47,7 +47,7 @@ If there is same named file, uploading file is renamed automatically.
 (e.g. 'test.mp3' -> 'test(2).mp3')
 
 administrator@Tualatin ~/svn/pyacd $ ./acdputr.py -e someone@example.com -p xxxx ~/Pictures 
-Logining to Amazon.com ... Done
+Logging in to Amazon.com ... Done
 Uploading test.jpg to / ... Done
 """
 
@@ -115,7 +115,7 @@ def main():
   session=None
   try:
     if not opts.quiet:
-      sys.stderr.write("Logining to Amazon.com ... ")
+      sys.stderr.write("Logging in to Amazon.com ... ")
     if opts.email and opts.password:
       session=pyacd.login(opts.email,opts.password)
     else:

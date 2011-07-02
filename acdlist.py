@@ -44,7 +44,7 @@ Options:
 This command lists files and directories of your Amazon Cloud Drive.
 
 administrator@Tualatin ~/svn/pyacd $ ./acdlist.py -s ~/.session / -l
-Logining to Amazon.com ... Done
+Logging in to Amazon.com ... Done
 Updating /home/administrator/.session ... Done
 Listing / ... Done
 total 2 (/)
@@ -109,7 +109,7 @@ def main():
   session=None
   try:
     if not opts.quiet:
-      sys.stderr.write("Logining to Amazon.com ... ")
+      sys.stderr.write("Logging in to Amazon.com ... ")
     if opts.email and opts.password:
       session=pyacd.login(opts.email,opts.password)
     else:

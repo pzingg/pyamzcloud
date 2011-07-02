@@ -42,7 +42,7 @@ Options:
 This command move file(s) or dir(s) to Recycle of your Amazon Cloud Drive.
 
 administrator@Tualatin ~/svn/pyacd $ ./acdrecycle.py -s ~/.session README.TXT
-Logining to Amazon.com ... Done
+Logging in to Amazon.com ... Done
 Updating /home/administrator/.session ... Done
 Moving /README.TXT to Recycle ... Done
 """
@@ -100,7 +100,7 @@ def main():
   session=None
   try:
     if not opts.quiet:
-      sys.stderr.write("Logining to Amazon.com ... ")
+      sys.stderr.write("Logging in to Amazon.com ... ")
     if opts.email and opts.password:
       session=pyacd.login(opts.email,opts.password)
     else:

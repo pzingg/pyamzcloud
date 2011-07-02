@@ -43,7 +43,7 @@ This command makes dir(s) in your Amazon Cloud Drive. If there is same named
 dir, making dir is aborted automatically.
 
 administrator@Tualatin ~/svn/pyacd $ ./acdmkdir.py -s ~/.session testdir
-Logining to Amazon.com ... Done
+Logging in to Amazon.com ... Done
 Updating /home/administratora/.session ... Done
 Making testdir in / ... Done
 """
@@ -102,7 +102,7 @@ def main():
   session=None
   try:
     if not opts.quiet:
-      sys.stderr.write("Logining to Amazon.com ... ")
+      sys.stderr.write("Logging in to Amazon.com ... ")
     if opts.email and opts.password:
       session=pyacd.login(opts.email,opts.password)
     else:

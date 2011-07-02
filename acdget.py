@@ -47,7 +47,7 @@ This command download file(s) from your Amazon Cloud Drive. If there is same
 named file, downloading is canceled automatically. (or use --force option)
 
 administrator@Tualatin ~/svn/pyacd $ ./acdget.py -s ~/.session README.TXT
-Logining to Amazon.com ... Done
+Logging in to Amazon.com ... Done
 Updating /home/administrator/.session ... Done
 Downloading /README.TXT to ./ ... Done
 """
@@ -120,7 +120,7 @@ def main():
   session=None
   try:
     if not opts.quiet:
-      sys.stderr.write("Logining to Amazon.com ... ")
+      sys.stderr.write("Logging in to Amazon.com ... ")
     if opts.email and opts.password:
       session=pyacd.login(opts.email,opts.password)
     else:
