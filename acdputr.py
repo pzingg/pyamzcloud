@@ -184,6 +184,15 @@ def main():
       parent, folder = os.path.split(destdir)
       parent += '/'
 
+      # Validate folder name - must satisfy regular expression pattern: 
+      if not pyacd.validation.is_valid_member_name(folder):
+        # replace double quotes with single quotes, others with _
+        new_folder = pyacd.validation.rewrite_invalid_member_name(folder)
+        if opts.verbose:
+          sys.stderr.write("invalid folder '%s' - changed to '%s'"%(folder,new_folder))
+        folder = new_folder
+        destdir = os.path.join(parent,folder)
+
       if opts.verbose:
         sys.stderr.write("create folder '%s' in '%s'"%(folder,parent))
       if opts.dryrun:
