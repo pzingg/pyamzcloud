@@ -24,28 +24,39 @@ Frequently Asked Questions
 How many devices can I use to access the files I've stored in my Cloud Drive?
 
 ######################################################
-# Installation of pyacd
+# Installation of acdxxx.py
 ######################################################
 
-(1) Execute following command.
+(1) Check out source from github:
 
-svn checkout http://pyamazonclouddrive.googlecode.com/svn/trunk/pyacd /path/to/your/pylibdir
+git clone git://github.com/pzingg/pyamzcloud.git ~/pyacd
+
+Or check out original source from svn:
+
+svn checkout http://pyamazonclouddrive.googlecode.com/svn/trunk/ ~/pyacd 
+
+######################################################
+# Installation of pyacd library
+######################################################
+
+(1) After checking out source, execute following command.
+
+mv ~/pyacd/pyacd /path/to/your/pylibdir
 
 (2) If you use python 2.5.x and don't use simplejson, also execute following one.
 
-svn checkout http://pyamazonclouddrive.googlecode.com/svn/trunk/simplejson /path/to/your/pylibdir
+mv ~/pyacd/simplejson /path/to/your/pylibdir
 
 (3) Read source in pyacd.
 
 Use the Source, Luke.
 
 ######################################################
-# Installation and Usage of acdxxx.py
+# Usage of acdxxx.py
 ######################################################
 
-(1) Execute following command.
+(1) Add base directory to your path.
 
-svn checkout http://pyamazonclouddrive.googlecode.com/svn/trunk/ ~/pyacd
 export PATH=$PATH:~/pyacd
 
 (2) Upload files in somewhere.
@@ -53,25 +64,32 @@ export PATH=$PATH:~/pyacd
 acdmkdir.py -e someone@example.com -p xxxx -s ~/.acdsession somewhere
 ls -F somewhere|grep -v /|sed "s/[\*|@]$//g"|sed "s/^/somewhere\//g"|acdput.py -s ~/.acdsession -d somewhere -
 
-(3) Download files to somewhere_else.
+(3) Upload whole directory trees from a folder on your computer to a folder in your cloud. 
+Creates nested folders in the cloud as necessary. Overwrites files already there.
+
+acdputr.py -e someone@example.com -p xxxx -s ~/.acdsession -d folder_in_your_cloud folder_on_your_computer
+
+(4) Download files to somewhere_else.
 
 mkdir somewhere_else
 acdlist.py -s ~/.acdsession -t FILE somewhere|sed "s/^/somewhere\//g"|acdget.py -s ~/.acdsession -d somewhere_else -
 
-(4) See also help.
+(5) See also help.
 
 acdget.py --help
 acdlist.py --help
 acdmkdir.py --help
 acdrecycle.py --help
 acdput.py --help
+acdputr.py --help
 acdcat.py --help
 
-(5) Alias if you need.
+(6) Alias if you need.
 
 alias acdget='acdget.py -s ~/.acdsession -q'
 alias acdlist='acdlist.py -s ~/.acdsession -q'
 alias acdmkdir='acdmkdir.py -s ~/.acdsession -q'
 alias acdrecycle='acdrecycle.py -s ~/.acdsession -q'
 alias acdput='acdput.py -s ~/.acdsession -q'
+alias acdputr='acdputr.py -s ~/.acdsession -q'
 alias acdcat='acdcat.py -s ~/.acdsession -q'
