@@ -79,8 +79,8 @@ parser.add_option("-v","--verbose",dest="verbose",action="store_true",default=Fa
                   help="show debug infomation")
 parser.add_option("-q","--quiet",dest="quiet",action="store_true",default=False,
                   help="quiet mode")
-parser.add_option("-r","--dry-run",dest="dryrun",action="store_true",default=False,
-                  help="just walk directories, don't upload")
+parser.add_option("-n","--dry-run",dest="dryrun",action="store_true",default=False,
+                  help="just walk directories, don't create folders or upload files")
 
 def main():
   opts,args=parser.parse_args(sys.argv[1:])
