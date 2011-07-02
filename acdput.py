@@ -157,7 +157,7 @@ def main():
       sys.stderr.write('"%s" is file\n'%path)
       sys.exit(2)
   except pyacd.PyAmazonCloudDriveApiException,e:
-    sys.stderr.write('"%s"\n'%e.message)
+    sys.stderr.write('"%s"\n'%str(e))
     sys.exit(2)
 
 

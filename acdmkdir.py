@@ -152,7 +152,7 @@ def main():
     try:
       pyacd.api.create_by_path(parent,folder,Type=pyacd.types.FOLDER)
     except pyacd.PyAmazonCloudDriveApiException,e:
-      sys.stderr.write("Aborted. ('%s')\n"%e.message)
+      sys.stderr.write("Aborted. ('%s')\n"%str(e))
       continue
     if opts.verbose:
       sys.stderr.write("-> ")

@@ -43,7 +43,7 @@ class PyAmazonCloudDriveApiException(PyAmazonCloudDriveError):
       if not isinstance(error_obj,dict):
         PyAmazonCloudDriveError.__init__(self,error_obj)
       else:
-        self.message=error_obj.get("Message")
         self.code=error_obj.get("Code")
+        self._message=error_obj.get("Message")
         self._type=error_obj.get("Type")
-        PyAmazonCloudDriveError.__init__(self,"%s:%s"%(self.code,self.message))
+        PyAmazonCloudDriveError.__init__(self,"%s: %s"%(self.code,self._message))

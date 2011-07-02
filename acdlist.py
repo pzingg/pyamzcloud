@@ -156,7 +156,7 @@ def main():
     try:
       pathobj = pyacd.api.get_info_by_path(path)
     except pyacd.PyAmazonCloudDriveApiException,e:
-      sys.stderr.write("Aborted. ('%s')\n"%e.message)
+      sys.stderr.write("Aborted. ('%s')\n"%str(e))
       continue
     if opts.verbose:
       sys.stderr.write("-> ")
